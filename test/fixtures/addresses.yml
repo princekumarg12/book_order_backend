@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  house_no: MyString
+  landmark: MyString
+  village: MyString
+  post_office: MyString
+  tehsil: MyString
+  district: MyString
+  state: MyString
+  city: MyString
+  pin_code: MyString
+  address_type: MyString
+  is_primary: false
+
+two:
+  user: two
+  house_no: MyString
+  landmark: MyString
+  village: MyString
+  post_office: MyString
+  tehsil: MyString
+  district: MyString
+  state: MyString
+  city: MyString
+  pin_code: MyString
+  address_type: MyString
+  is_primary: false
