@@ -14,7 +14,7 @@ relationship_types = ['Brother', 'Sister', 'Father', 'Mother', 'Spouse', 'Friend
       name: Faker::Name.name,
       relative_type: relationship_types.sample,  # Pick a random relationship type from the list
       relative_name: Faker::Name.name,
-      mobile: Faker::PhoneNumber.cell_phone_in_e164,
+      mobile: Faker::PhoneNumber.cell_phone_in_e164.gsub(/[^\d]/, '')[1..10],
       gender: ['Male', 'Female'].sample
   )
 

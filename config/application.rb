@@ -28,5 +28,18 @@ module BookOrderBackend
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        # Specify allowed origins; replace '*' with specific domains in production
+        origins 'http://127.0.0.1:5500', 'http://localhost:3000'
+
+        # Specify allowed resources and HTTP methods
+        resource '*',
+                 headers: :any, # Allow any headers from the client
+                 methods: [:get, :post, :put, :patch, :delete, :options, :head], # Allow specific HTTP methods
+                 expose: ['Authorization'] # Expose specific headers (e.g., JWT tokens)
+      end
+    end
   end
 end
