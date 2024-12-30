@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :addresses
       resources :books
       resources :protected_resource, only: [:index, :show]
+      resources :orders, only: [:create]
     end
   end
 

@@ -3,14 +3,15 @@ class OrderItem < ApplicationRecord
   belongs_to :book
 
   validates :quantity, numericality: {greater_than_or_equal_to: 1}
-  validate :check_single_order_item_limit
+  validate :validate_order_restrictions
 
   private
 
-  def check_single_order_item_limit
-    # If the user is not allowed to have multiple order items, check the order item count
-    if order.user && !order.user.can_order_multiple_books? && order.order_items.count > 0
-      errors.add(:base, "You can only have one order item.")
+  def validate_order_restrictions
+    return unless order.user && !order.user.can_order_multiple_books?
+
+    if order.order_items.exists? || quantity > 1
+      errors.add(:base, "Regular users can only order one book with a quantity of 1.")
     end
   end
 end
