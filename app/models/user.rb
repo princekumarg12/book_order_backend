@@ -12,6 +12,6 @@ class User < ApplicationRecord
   # validates :email, format: {ff:ff URI::MailTo::EMAIL_REGEXP}
 
   def can_order_multiple_books?
-    role == 'bulk_buyer'
+    role == "bulk_buyer"
   end
 end

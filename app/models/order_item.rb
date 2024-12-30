@@ -2,7 +2,7 @@ class OrderItem < ApplicationRecord
   belongs_to :order
   belongs_to :book
 
-  validates :quantity, numericality: {greater_than_or_equal_to: 1}
+  validates :quantity, numericality: { greater_than_or_equal_to: 1 }
   validate :validate_order_restrictions
 
   private

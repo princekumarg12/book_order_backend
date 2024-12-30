@@ -10,7 +10,7 @@ class Api::V1::OrdersController < ApplicationController
         order.order_items.create!(item_params)
       end
 
-      render json: { message: 'Order created successfully!' }, status: :created
+      render json: { message: "Order created successfully!" }, status: :created
     end
   rescue ActiveRecord::RecordInvalid => e
     render json: { error: e.message }, status: :unprocessable_entity
@@ -36,5 +36,4 @@ class Api::V1::OrdersController < ApplicationController
       item.permit(:book_id, :quantity)
     end
   end
-
 end

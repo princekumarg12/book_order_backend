@@ -72,7 +72,7 @@ end
       role: 'regular' # Assign regular role
   )
 
-  # Create 1 to 3 random addresses for each user (adjust the number as needed)
+    # Create 1 to 3 random addresses for each user (adjust the number as needed)
     user.addresses.create!(
         house_no: Faker::Address.building_number,
         landmark: Faker::Address.secondary_address,
@@ -87,7 +87,7 @@ end
         is_primary: [true, false].sample
     )
 
-    # Based on user role, add order items
+      # Based on user role, add order items
       order = user.orders.create!
 
       # For regular user, create 1 order item
@@ -97,7 +97,6 @@ end
           book: book,
           quantity: rand(1..5) # Random quantity between 1 and 5
       )
-
 end
 
 
